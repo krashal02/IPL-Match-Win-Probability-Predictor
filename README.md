@@ -69,7 +69,7 @@ The model takes the following inputs:
 
 ```bash
 git clone https://github.com/krashal02/IPL-Match-Win-Probability-Predictor
-cd ipl-match-win-probability-predictor
+cd IPL-Match-Win-Probability-Predictor
 
 ``` 
 
@@ -85,5 +85,6 @@ http://127.0.0.1:5000/
 ## 👨‍💻 Author
 
 ### Krashal Yaduvanshi
+
 
 Machine Learning Engineer
