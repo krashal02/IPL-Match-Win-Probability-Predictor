@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPL Win Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🏏 IPL Win Probability Predictor</h1>
+
+    <form action="/predict" method="post">
+
+        <label>Batting Team</label>
+        <select name="batting_team" required>
+            {% for team in teams %}
+            <option value="{{team}}">{{team}}</option>
+            {% endfor %}
+        </select>
+
+        <label>Bowling Team</label>
+        <select name="bowling_team" required>
+            {% for team in teams %}
+            <option value="{{team}}">{{team}}</option>
+            {% endfor %}
+        </select>
+
+        <label>City</label>
+        <select name="city" required>
+            {% for city in cities %}
+            <option value="{{city}}">{{city}}</option>
+            {% endfor %}
+        </select>
+
+        <input type="number" name="runs_left" placeholder="Runs Left" required>
+        <input type="number" name="balls_left" placeholder="Balls Left" required>
+        <input type="number" name="wickets" placeholder="Wickets Remaining" required>
+        <input type="number" name="total_runs" placeholder="Target" required>
+        <input type="number" step="0.01" name="crr" placeholder="Current Run Rate" required>
+        <input type="number" step="0.01" name="rrr" placeholder="Required Run Rate" required>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+    {% if win %}
+    <div class="result">
+        <h2>{{batting_team}} Win Probability: {{win}}%</h2>
+        <h2>Loss Probability: {{loss}}%</h2>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
